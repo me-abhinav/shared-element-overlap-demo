@@ -11,8 +11,6 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
-
 import java.lang.ref.WeakReference;
 import java.util.HashSet;
 import java.util.Set;
@@ -24,34 +22,32 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Fresco.initialize(this);
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ImageView image = findViewById(R.id.image_view);
-        image.setOnClickListener(v -> {
+        ImageView imageView = findViewById(R.id.image_view);
+        imageView.setOnClickListener(v -> {
             // Set the transition name. We could also do it in the xml layout but this is to demo
             // that we can choose any name generated dynamically.
             String transitionName = getString(R.string.transition_name);
-            image.setTransitionName(transitionName);
+            imageView.setTransitionName(transitionName);
 
             // This part is important. We first need to clip this view to only its visible part.
             // We will also clip the corresponding view in the SecondActivity using shared element
             // callbacks.
-            mClipState.save(image);
+            mClipState.save(imageView);
             Rect localVisibleRect = new Rect();
-            image.getLocalVisibleRect(localVisibleRect);
-            image.setClipBounds(localVisibleRect);
+            imageView.getLocalVisibleRect(localVisibleRect);
+            imageView.setClipBounds(localVisibleRect);
 
             Intent intent = new Intent(MainActivity.this, SecondActivity.class);
             intent.putExtra(SecondActivity.EXTRA_TRANSITION_NAME, transitionName);
             intent.putExtra(SecondActivity.EXTRA_CLIP_RECT, localVisibleRect);
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(
                             MainActivity.this,
-                            Pair.create(image, transitionName));
+                            Pair.create(imageView, transitionName));
             startActivity(intent, options.toBundle());
         });
     }
