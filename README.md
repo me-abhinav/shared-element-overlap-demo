@@ -9,7 +9,7 @@ Let us say we have two activities viz. `MainActivity` which has a scrolling cont
 
 **Please checkout the full code to completely understand the solution.**
 
-1. Inside your `MainActivity` which hosts the scrolling container, set a click listener on you thumbnail to open `SecondActivity`:
+1. Inside your `MainActivity` which hosts the scrolling container, set a click listener on your thumbnail to open `SecondActivity`:
 ```java
 ImageView imageView = findViewById(R.id.image_view);
 imageView.setOnClickListener(v -> {
@@ -47,7 +47,7 @@ protected void onResume() {
     }
 }
 ```
-3. Create transition resource in you res folder like this:
+3. Create transition resource in your `res` folder like this:
 `app/src/main/res/transition/shared_element_transition.xml`
 The contents should be similar to this:
 ```xml
