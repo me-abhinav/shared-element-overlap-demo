@@ -7,6 +7,8 @@ This is a demo app to show how to solve the issue when our shared view is in a s
 
 Let us say we have two activities viz. `MainActivity` which has a scrolling container with a grid/list of thumbnails, and we have a `SecondActivity` which shows the image in a slideshow in fullscreen.
 
+**Please checkout the full code to completely understand the solution.**
+
 1. Inside your `MainActivity` which hosts the scrolling container, set a click listener on you thumbnail to open `SecondActivity`:
 ```java
 ImageView imageView = findViewById(R.id.image_view);
