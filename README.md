@@ -1,7 +1,9 @@
 # Demo
 This is a demo app to show how to solve the issue when our shared view is in a scrolling container and is only partially visible at the time when the shared element transition started. Following is a recorded demo after the fix.
 
-![Demo](demo.gif)
+| With fix | Without fix |
+|---|---|
+| ![Demo with fix](demo.gif) | ![Without fix](without-fix.gif) | 
 
 # Steps
 
