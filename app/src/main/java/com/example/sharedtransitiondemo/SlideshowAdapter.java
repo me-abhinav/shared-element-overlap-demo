@@ -1,14 +1,11 @@
 package com.example.sharedtransitiondemo;
 
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
-
-import com.facebook.common.util.UriUtil;
 
 public class SlideshowAdapter extends FragmentStateAdapter {
 
@@ -19,6 +16,7 @@ public class SlideshowAdapter extends FragmentStateAdapter {
         super(fragmentActivity);
     }
 
+    @SuppressWarnings("unused")
     public SlideshowAdapter(@NonNull Fragment fragment) {
         super(fragment);
     }
@@ -28,11 +26,6 @@ public class SlideshowAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         Fragment fragment = new ImageFragment();
         Bundle args = new Bundle();
-
-        Uri uri = new Uri.Builder()
-                .scheme(UriUtil.LOCAL_RESOURCE_SCHEME)
-                .path(String.valueOf(R.drawable.image))
-                .build();
 
         if (position == mTransitionPosition) {
             args.putString(ImageFragment.ARG_TRANSITION_NAME, mTransitionName);
