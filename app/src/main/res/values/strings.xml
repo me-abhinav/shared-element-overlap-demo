@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Shared transition demo</string>
+    <string name="transition_name">my_shared_element_transition_name</string>
+</resources>
